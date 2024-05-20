@@ -18,6 +18,11 @@
         align-items: center;
       }
 
+      h1 {
+        color: red;
+        animation: animate 2s infinite;
+      }
+
       .box {
         width: 100%;
         position: absolute;
@@ -27,15 +32,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
-        animation: animate 2s infinite;
-      }
-
-      .text {
-        position: absolute;
-        color: red;
-        font-size: 24px;
-        font-weight: bold;
       }
 
       canvas {
@@ -110,10 +106,8 @@
 
   <body>
     <div class="box">
-      <div id="pinkboard">
-        <canvas></canvas>
-        <div class="text">Ara, Aku mencintaimu</div>
-      </div>
+      <h1>Ara, Aku mencintaimu</h1>
+      <canvas id="pinkboard"></canvas>
     </div>
     
     <script>
@@ -447,7 +441,7 @@
 
           render();
         }, 10);
-      })(document.querySelector("#pinkboard canvas"));
+      })(document.getElementById("pinkboard"));
 
       // Haduc25 -  Github repo: https://github.com/haduc25
       // @11/09/2022 - 11:40am
