@@ -17,10 +17,6 @@
         justify-content: center;
         align-items: center;
       }
-      
-      h1 {
-        color: red; 
-      }
 
       .box {
         width: 100%;
@@ -30,6 +26,16 @@
         transform: translate(-50%, -50%);
         display: flex;
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        animation: animate 2s infinite;
+      }
+
+      .text {
+        position: absolute;
+        color: red;
+        font-size: 24px;
+        font-weight: bold;
       }
 
       canvas {
@@ -41,12 +47,8 @@
       #pinkboard {
         position: relative;
         margin: auto;
-        height: 500px;
-        width: 500px;
-        animation: animate 2s infinite;
-      }
-
-      h1 {
+        height: 400px;
+        width: 400px;
         animation: animate 2s infinite;
       }
 
@@ -58,17 +60,17 @@
 
         background: #ff5ca4;
 
-        width: 100px;
+        width: 80px;
 
-        height: 160px;
+        height: 130px;
 
-        border-top-left-radius: 50px;
+        border-top-left-radius: 40px;
 
-        border-top-right-radius: 50px;
+        border-top-right-radius: 40px;
       }
 
       #pinkboard:before {
-        left: 100px;
+        left: 80px;
 
         transform: rotate(-45deg);
 
@@ -107,10 +109,11 @@
   </head>
 
   <body>
-    <h1>HeartBeat</h1>
-
     <div class="box">
-      <canvas id="pinkboard"></canvas>
+      <div id="pinkboard">
+        <canvas></canvas>
+        <div class="text">Ara, Aku mencintaimu</div>
+      </div>
     </div>
     
     <script>
@@ -120,7 +123,7 @@
           duration: 3,
           velocity: 100,
           effect: -1,
-          size: 8,
+          size: 6,
         },
       };
 
@@ -337,13 +340,13 @@
 
         function pointOnHeart(t) {
           return new Point(
-            160 * Math.pow(Math.sin(t), 3),
+            140 * Math.pow(Math.sin(t), 3),
 
-            130 * Math.cos(t) -
-              50 * Math.cos(2 * t) -
-              20 * Math.cos(3 * t) -
-              10 * Math.cos(4 * t) +
-              25
+            120 * Math.cos(t) -
+              45 * Math.cos(2 * t) -
+              18 * Math.cos(3 * t) -
+              9 * Math.cos(4 * t) +
+              22
           );
         }
 
@@ -360,11 +363,11 @@
 
             point.x =
               settings.particles.size / 2 +
-              (point.x * settings.particles.size) / 350;
+              (point.x * settings.particles.size) / 300;
 
             point.y =
               settings.particles.size / 2 -
-              (point.y * settings.particles.size) / 350;
+              (point.y * settings.particles.size) / 300;
 
             return point;
           }
@@ -444,7 +447,7 @@
 
           render();
         }, 10);
-      })(document.getElementById("pinkboard"));
+      })(document.querySelector("#pinkboard canvas"));
 
       // Haduc25 -  Github repo: https://github.com/haduc25
       // @11/09/2022 - 11:40am
